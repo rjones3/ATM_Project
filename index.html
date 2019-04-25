@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet">
+</head>
+<body>
+    <div class="outerbox">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12"><div class="bankname">Bank of Jones</div></div>
+            </div>
+            <div class="outerscreen">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <button class="blank-btn"> </button>
+                        <button class="blank-btn"> </button>
+                        <button class="blank-btn"> </button>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="col-sm-12">
+                            <!-- Welcome Screen -->
+                            <div class="jumbotron screen" id="welcomeScreen">
+                                <h1>Welcome</h1>
+                                <form action="#" onsubmit="getCard()" >
+                                    <p>Please enter your 4 Digit Card Number</p> 
+                                    <input type="text" id="cardNum" placeholder="" class="myform">
+                                    <input type="submit" value="Enter">
+                                </form>
+                                <p>Or <br> <a class="create-account" onclick="createAccount()">Create Account</a> </p>
+                            </div>
+                            <!-- Create Screen -->
+                            <div class="jumbotron screen" id="createAccount">
+                                <h1>Create Account</h1>
+                                <form action="#" onsubmit="newAccount()">
+                                    <label for="firstname">First Name: </label>
+                                    <input type="text" id="firstname" class="myform">
+                                    <br>
+                                    <label for="lastname">Last Name: </label>
+                                    <input type="text" id="lastname" class="myform">
+                                    <br>
+                                    <label for="newPin">New Pin: </label>
+                                    <input type="text" id="account" class="myform">
+                                    <br>
+                                    <input type="submit" value="Enter">
+                                </form>
+                                <button onclick="done()">Done</button>
+                                <p><span id="newCard"></span></p>
+                            </div>
+                            <!-- Pin Screen -->
+                            <div class="jumbotron screen" id="pinScreen">
+                                <h1>Enter Pin</h1>
+                                <form action="#"  onsubmit="getPin()" >
+                                    <label for="">Enter your 4 Digit Pin</label>
+                                    <input type="password" id="pinNum" placeholder="" class="myform">
+                                    <input type="submit" value="Enter">
+                                </form>
+                                <button onclick="mainback()">Back</button>
+                            </div>
+                            <!-- Dashboard Screen -->
+                            <div class="jumbotron screen" id="dashboardScreen">
+                                <h1>Dashboard</h1>
+                                <p>Hi <span id="user">"Name"</span>, Welcome Back. What can we do for you today?</p>
+                                <button onclick="accBH()">Account Balance</button>
+                                <button onclick="depo()">Deposit</button>
+                                <button onclick="withdrawScreen()">Withdraw</button>
+                                <button onclick="trans1()">Transfer</button>
+                                <button onclick="thanks()">Done</button>
+                            </div>
+                            <!-- Account Summary Scren -->
+                            <div class="jumbotron screen" id="summaryScreen">
+                                <h1>Account Summary</h1>
+                                <p class="small-header">Checkings Balance $<span id="checkingBalance">0</span></p>
+                                <p class="small-header">Savings Balance $<span id="savingsBalance">0</span></p>
+                                <!-- <p class="small-header">Account History Below: <br> <span id="transHistory">None</span></p> -->
+                                <button onclick="back()">Back</button>
+                            </div>
+                            <!-- Deposit Screen -->
+                            <div class="jumbotron screen" >
+                                <h1>Deposit</h1>
+                                <form action="#" name="depForm" onsubmit="deposit()">
+                                    <label for="amount">How much would you like to Deposit?</label>
+                                    <br>
+                                    <input type="text" id="depositAmount" class="myform">
+                                    <br>
+                                    <label for="choice">Deposit to:</label>
+                                    <br>
+                                    <input type="radio" name="dep" value="checkings">Checking
+                                    <input type="radio" name="dep" value="savings">Savings
+                                    <br>
+                                    <input type="submit" value="Deposit">
+                                </form>
+                                <button onclick="back()">Back</button>
+                                <p><span id="newDBal"></span></p>
+                            </div>
+                            <!-- Withdraw Screen -->
+                            <div class="jumbotron screen">
+                                <h1>Withdraw</h1>
+                                <form action="#" name="withForm" onsubmit="withdraw()">
+                                    <label for="amount">How much would you like to Withdraw? Limit $5000</label>
+                                    <br>
+                                    <input type="text" id="withdrawAmount" class="myform">
+                                    <br>
+                                    <label for="choice">Withdraw from:</label>
+                                    <br>
+                                    <input type="radio" name="with" value="checkings">Checking
+                                    <input type="radio" name="with" value="savings">Savings
+                                    <br>
+                                    <input type="submit" value="Withdraw">
+                                </form>
+                                <button onclick="back()">Back</button>
+                                <p><span id="newWBal"></span></p>
+                            </div>
+                            <!--Thank you Screen-->
+                            <div class="jumbotron screen" id="thankyouScreen">
+                                <h1>Thank You</h1>
+                                <p>Have a nice day.</p>
+                            </div>
+                            <!-- Error Account Locked Screen -->
+                            <div class="jumbotron screen" id="errorScreen">
+                                <h1>Account Locked</h1>
+                                <p>Call Bank to Unlock</p>
+                            </div>
+                            <!-- Transfer Screen 1 -->
+                            <div class="jumbotron screen" id="transferScreen1">
+                                <h1>Transfer</h1>
+                                <select value="name" id="currentusers"></select>
+                                <input type="submit" onclick="trans2()">
+                                <button onclick="back()">Back</button>
+                            </div>
+                            <!-- Transfer Screen 2 -->
+                            <div class="jumbotron screen" name="tranForm" id="transferScreen2">
+                                <h1>Transfer</h1>
+                                <form action="#" name="tranForm"onsubmit="transfer()">
+                                    <label for="amount">Transfer Amount? Limit $5000</label>
+                                    <br>
+                                    <input type="text" id="transferAmount" class="myform">
+                                    <br>
+                                    <label for="from">Transfer From?</label>
+                                    <input type="radio" name="tran" value="checkings">Checking
+                                    <input type="radio" name="tran" value="savings">Savings
+                                    <br>
+                                    <input type="submit" value="Transfer">
+                                </form>
+                                <p><span id="newTBal"></span></p>
+                                <button onclick="back()">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="blank-btn"> </button>
+                        <button class="blank-btn"> </button>
+                        <button class="blank-btn"> </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6" style="color: white;">Cash Here
+                    <div class="cash-output"></div>
+                    <div class="mycash">
+                    </div>
+                </div>
+                <div class="col-sm-6" style="color: white;">Card Here
+                    <div class="card-slot"></div>
+                    <div class="mycard">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="color: white;"> Receipt
+                    <div class="receipt-slot"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="keypad-btns">
+                        <div class="col-sm-12">
+                            <div class="col-sm-4">
+                                <button data-key="1" class="keypad-btn">1</button>
+                                <button data-key="4" class="keypad-btn">4</button>
+                                <button data-key="7" class="keypad-btn">7</button>
+                                <button data-key="*" class="keypad-btn">*</button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button data-key="2" class="keypad-btn">2</button>
+                                <button data-key="5" class="keypad-btn">5</button>
+                                <button data-key="8" class="keypad-btn">8</button>
+                                <button data-key="0" class="keypad-btn">0</button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button data-key="3" class="keypad-btn">3</button>
+                                <button data-key="6" class="keypad-btn">6</button>
+                                <button data-key="9" class="keypad-btn">9</button>
+                                <button data-key="#" class="keypad-btn">#</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/fallUsers.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
