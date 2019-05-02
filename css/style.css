@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+.bankname {
+    font-family: 'Unlock', cursive;
+    font-size: 72px;
+    color: #ededed;
+}
+/* Screen Divs */
+.screen { 
+    position: relative;
+    min-height: 425px;
+    max-height: 425px;
+}
+p.small-header {
+    font-size: 20px;
+}
+body {
+    height: 100vh;
+    background-color: #8B0000;
+    overflow: hidden;
+}
+.hidden {
+    display: none !important;
+}
+.jumbotron { 
+    width: 500px;
+    margin: 0 auto;
+    
+}
+.outerbox {
+    height: 768px;
+    margin: 0 auto;
+    background-color: #8B0000;
+    /* background: #333; */
+    
+}
+.create-account {
+    position: absolute;
+    margin-top: 5px;
+    left: 175px;
+    color: #333;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.create-account:hover {
+    position: absolute;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: #8B0000;
+    font-weight:bold;
+    animation-play-state: paused;
+    
+    
+}
+@keyframes bounce {
+    0% {transform: translateY(0px); }
+    50% {transform: translateY(-15px); }
+    100% {transform: translateY(0px); }
+}
+/* Outter Atm */
+
+.upper-inside {
+    background-color: #808596;
+    transform: perspective(45px) rotateX(4deg);
+    width: calc(100%/3);
+    
+}
+.blank-btn {
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    border-radius: 3px;
+}
+.keypad-btn {
+    margin: 7px auto;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+.keypad-btns {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    
+}
+.outerscreen {
+    
+}
+
+.receipt-slot {
+    margin: 5px auto;
+    padding: 2px 10px;
+    width: 17%;
+    background-color: black;
+    border: solid 1px #aab0b3;
+    border-radius: 2px;
+} 
+
+/* Cash */
+.cash-output {
+    position: absolute;
+    left: 0;
+    margin: 5px auto;
+    padding: 3px 10px;
+    width: 50%;
+    background-color: black;
+    border: solid 1px #aab0b3;
+    border-radius: 2px;
+}
+.mycash {
+    overflow: hidden;
+    position: absolute;
+    bottom: -10px;
+    margin: 0 auto;
+    background-image: url(../images/money2.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    height: 0px;
+    width: 255px;
+}
+
+.mycash-in {
+    height: 350px;
+    bottom: -360px;
+    transition: all 3s ease-in-out;
+}
+
+
+/* Card */
+
+.card-slot {
+    position: absolute;
+    margin: 5px auto;
+    padding: 2px 10px;
+    width: 51%;
+    background-color: black;
+    border: solid 1px #aab0b3;
+    border-radius: 2px;
+    right: 0;
+    
+}
+.mycard {
+    overflow: hidden;
+    position: absolute;
+    bottom: -330px;
+    margin: 0 auto;
+    width: 213px;
+    height: 323px;
+    left: 328px;
+    background-image: url(../images/card2.png);
+    background-position: bottom center;
+    transition: all 3s ease-in-out;
+}
+
+.mycard-in {
+    height: 30px;
+    bottom: -38px;
+}
+
+/* .card-circle {
+    margin: 5px auto;
+    padding: 15px 15px;
+    width: 15%;
+    height: 15%;
+    background-color: black;
+} */
